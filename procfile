@@ -1,1 +1,1 @@
-worker: node saciperere.js
+web: node saciperere.js
