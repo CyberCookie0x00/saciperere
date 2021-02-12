@@ -2,13 +2,21 @@
   "name": "discord_bot",
   "version": "1.0.0",
   "description": "Discord bot - saciperere",
-  "main": "index.js",
+  "main": "saciperere.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CyberCookie0x00/saciperere.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CyberCookie0x00/saciperere/issues"
+  },
+  "homepage": "https://github.com/CyberCookie0x00/saciperere#readme",
   "dependencies": {
     "discord.js": "^12.5.1"
   }
