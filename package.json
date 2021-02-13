@@ -4,6 +4,7 @@
   "description": "Discord bot - saciperere",
   "main": "saciperere.js",
   "scripts": {
+    "start": "node saciperere.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/CyberCookie0x00/saciperere#readme",
   "dependencies": {
-    "discord.js": "^12.5.1"
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0"
   }
 }
