@@ -1,1 +1,1 @@
-worker: npm saciperere.js
+worker: node saciperere.js
