@@ -1,36 +1,27 @@
-﻿const Discord = require('discord.js');
-require('dotenv').config();
-const fetch = require('node-fetch')
+﻿/*-------Dependencies-------*/
+const Discord = require("discord.js");
+require("dotenv").config();
+const fetch = require("node-fetch");
 
-const client = new Discord.Client();
-
- 
-
-client.on('ready', () => {
-
-    console.log('I am ready!');
-
+//Message when bot is ready
+client.on("ready", () => {
+  console.log("I am ready!");
 });
 
- 
-
-client.on('message', message => {
-
-    if (message.content === 'ping') {
-
-       message.reply('pong');
-
-       }
-
+/*-------Code for bot-------*/
+client.on("message", (message) => {
+  if (message.content === "ping") {
+    message.reply("pong");
+  }
 });
-
- 
 
 // THIS  MUST  BE  THIS  WAY
 
+/*--------24/7-------*/
 setInterval(async () => {
-    await fetch('https://saciperere.repl.co').then(console.log('Pinged'));
+  await fetch("https://saciperere.repl.co").then(console.log("Pinged"));
 }, 240000);
 
-
-client.login(process.env.BOT_TOKEN);//BOT_TOKEN is the Client Secret
+/*-------Discord Connection-------*/
+const client = new Discord.Client();
+client.login(process.env.BOT_TOKEN);
