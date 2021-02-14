@@ -2,10 +2,11 @@
 const Discord = require("discord.js");
 require("dotenv").config();
 const fetch = require("node-fetch");
-const prefix = "$";
 const client = new Discord.Client();
 
 /*-------Message bots-------*/
+const prefix = "$";
+
 client.on("message", function(message) {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
