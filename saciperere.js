@@ -2,6 +2,23 @@
 const Discord = require("discord.js");
 require("dotenv").config();
 const fetch = require("node-fetch");
+const prefix = "$";
+const client = new Discord.Client();
+
+/*-------Message bots-------*/
+client.on("message", function(message) {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  const commandBody = message.content.slice(prefix.length);
+  const args = commandBody.split(' ');
+  const command = args.shift().toLocaleLowerCase();
+  
+  if(command === "ping") {
+    const timeTaken = Date.now() - message.createdTimestamp;
+    message.reply("Pong! Esta mensagem teve uma latência de " + timeTaken + "ms.");
+  }
+});
 
 //Message when bot is ready
 client.on("ready", () => {
@@ -9,11 +26,7 @@ client.on("ready", () => {
 });
 
 /*-------Code for bot-------*/
-client.on("message", (message) => {
-  if (message.content === "ping") {
-    message.reply("pong");
-  }
-});
+
 
 // THIS  MUST  BE  THIS  WAY
 
@@ -23,5 +36,4 @@ setInterval(async () => {
 }, 240000);
 
 /*-------Discord Connection-------*/
-const client = new Discord.Client();
 client.login(process.env.BOT_TOKEN);
