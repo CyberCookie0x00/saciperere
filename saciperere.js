@@ -20,6 +20,27 @@ client.on("message", function (message) {
 		const timeTaken = Date.now() - message.createdTimestamp;
 		message.reply(`Pong! Esta mensagem teve uma latência de ${timeTaken}ms.`);
 	}
+	if (command === "msg") {
+		const ID = args[0];
+
+		if (ID == undefined || ID.length != 18){
+			return message.channel.send("Preciso que me dês a ID da msg para começar a contar por lá!");
+		} else {
+			message.channel.messages.fetch({limit: 100, after:ID}).then(messages => message.channel.send(`Ao procurar no mato, encontrei ${messages.size + 2} mensagens!`)).catch(console.error);
+		}
+	}
+	if (command === "apagar") {
+		const amount = parseInt(args[0]) + 1;
+
+		if (isNaN(amount)){
+			return message.reply("Tens que me dar o nr de mensagens para apagar, entre 2 e 100!");
+		} else if (amount < 2 || amount >= 100 || amount === null) {
+			return message.reply("sou o Saci, não me enganas! Tens que me dar o nr de mensagens para apagar, entre 2 e 100!");
+		} else {
+			message.channel.bulkDelete(amount, true);
+			message.reply("já fiz o meu trabalho, agora vou dar umas voadoras!").then(msg => msg.delete({timeout: 60000}).catch(console.error));
+		}
+	}
 });
 
 //Message when bot is ready
